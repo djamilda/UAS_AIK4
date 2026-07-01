@@ -6,9 +6,9 @@
 
 define('APP_NAME', 'Panduan Sholat');
 define('KELOMPOK_NAMA', 'Kelompok 5');
-define('PRODI', 'Teknik Informatika');
-define('MATA_KULIAH', 'Pemrograman Web');
-define('DOSEN', 'Dr. Ahmad Fauzi, M.Kom.');
+define('PRODI', 'Sistem informasi');
+define('MATA_KULIAH', 'AIK4');
+define('DOSEN', 'Dedi Susanto, Spd.I., M.M.');
 
 $gerakanSholat = [
     [
