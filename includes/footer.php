@@ -31,7 +31,7 @@
                     <h4 class="text-emerald-400 font-semibold text-sm uppercase tracking-wider mb-4">Navigasi Cepat</h4>
                     <ul class="space-y-2">
                         <li>
-                            <a href="<?= str_repeat('../', substr_count($_SERVER['PHP_SELF'], '/') - 1) ?>index.php"
+                            <a href="<?= BASE_URL ?>index.php"
                                class="text-white/60 hover:text-emerald-400 text-sm transition-colors flex items-center gap-2">
                                 <i class="fas fa-chevron-right text-xs"></i> Beranda
                             </a>
@@ -42,14 +42,14 @@
                             foreach ($firstThree as $g):
                         ?>
                         <li>
-                            <a href="<?= str_repeat('../', substr_count($_SERVER['PHP_SELF'], '/') - 1) ?>detail.php?id=<?= $g['id'] ?>"
+                            <a href="<?= BASE_URL ?>detail.php?id=<?= $g['id'] ?>"
                                class="text-white/60 hover:text-emerald-400 text-sm transition-colors flex items-center gap-2">
                                 <i class="fas fa-chevron-right text-xs"></i> <?= htmlspecialchars($g['nama']) ?>
                             </a>
                         </li>
                         <?php endforeach; endif; ?>
                         <li>
-                            <a href="<?= str_repeat('../', substr_count($_SERVER['PHP_SELF'], '/') - 1) ?>pages/about.php"
+                            <a href="<?= BASE_URL ?>pages/about.php"
                                class="text-white/60 hover:text-emerald-400 text-sm transition-colors flex items-center gap-2">
                                 <i class="fas fa-chevron-right text-xs"></i> Tentang Kelompok
                             </a>
@@ -155,7 +155,7 @@
     </div>
 
     <!-- Main JS -->
-    <script src="<?= str_repeat('../', substr_count($_SERVER['PHP_SELF'], '/') - 1) ?>assets/js/main.js"></script>
-    <script src="<?= str_repeat('../', substr_count($_SERVER['PHP_SELF'], '/') - 1) ?>assets/js/audio.js"></script>
+    <script src="<?= BASE_URL ?>assets/js/main.js"></script>
+    <script src="<?= BASE_URL ?>assets/js/audio.js"></script>
 </body>
 </html>

@@ -214,7 +214,7 @@ include 'includes/nav.php';
                             <i class="fas fa-language text-amber-400 text-xs"></i>
                             <span class="text-amber-400/70 text-xs uppercase tracking-wider font-semibold">Teks Arab</span>
                         </div>
-                        <p class="arabic-text"><?= $bacaan['arab'] ?></p>
+                        <p class="arabic-text"><?= nl2br($bacaan['arab']) ?></p>
                     </div>
 
                     <!-- Latin & Terjemahan Tabs -->
@@ -258,8 +258,12 @@ include 'includes/nav.php';
                     </div>
 
                     <!-- Audio Player (F-03) -->
+                    <?php
+                        $audioJs = htmlspecialchars(json_encode(BASE_URL . $bacaan['audio'], JSON_UNESCAPED_UNICODE), ENT_QUOTES, 'UTF-8');
+                        $judulJs = htmlspecialchars(json_encode($bacaan['judul'], JSON_UNESCAPED_UNICODE), ENT_QUOTES, 'UTF-8');
+                    ?>
                     <div class="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/10">
-                        <button onclick="playAudio('<?= htmlspecialchars($bacaan['audio']) ?>', '<?= htmlspecialchars($bacaan['judul']) ?>')"
+                        <button onclick="playAudio(<?= $audioJs ?>, <?= $judulJs ?>)"
                                 id="audio-btn-<?= $bIdx ?>"
                                 class="w-11 h-11 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white flex items-center justify-center shadow-lg shadow-emerald-500/30 transition-all hover:scale-105 flex-shrink-0">
                             <i class="fas fa-play text-sm"></i>
@@ -281,7 +285,10 @@ include 'includes/nav.php';
 
                     <!-- Video Button (F-04) -->
                     <?php if (!empty($bacaan['video'])): ?>
-                    <button @click="openVideo('<?= htmlspecialchars($bacaan['video']) ?>', '<?= htmlspecialchars($bacaan['judul']) ?>')"
+                    <?php
+                        $videoJs = htmlspecialchars(json_encode($bacaan['video'], JSON_UNESCAPED_UNICODE), ENT_QUOTES, 'UTF-8');
+                    ?>
+                    <button @click="openVideo(<?= $videoJs ?>, <?= $judulJs ?>)"
                             class="w-full flex items-center justify-center gap-2.5 py-3 rounded-xl
                                    bg-gradient-to-r from-red-900/30 to-rose-900/20 border border-red-500/25
                                    hover:from-red-900/50 hover:border-red-500/50 transition-all group text-sm font-medium text-red-300 hover:text-red-200">
@@ -335,13 +342,25 @@ include 'includes/nav.php';
         </div>
         <!-- Video Embed -->
         <div class="rounded-2xl overflow-hidden bg-black shadow-2xl aspect-video">
-            <iframe :src="videoModal.url"
-                    width="100%" height="100%"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                    class="w-full h-full">
-            </iframe>
+            <template x-if="videoModal.type === 'mp4'">
+                <video x-show="videoModal.type === 'mp4'"
+                       :src="videoModal.url"
+                       controls
+                       autoplay
+                       class="w-full h-full bg-black"
+                       playsinline>
+                </video>
+            </template>
+
+            <template x-if="videoModal.type === 'youtube'">
+                <iframe :src="videoModal.url"
+                        width="100%" height="100%"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                        class="w-full h-full">
+                </iframe>
+            </template>
         </div>
         <p class="text-center text-white/30 text-xs mt-3">Klik di luar video untuk menutup</p>
     </div>

@@ -8,13 +8,29 @@
 function playAudio(src, title) {
     const alpine = document.body._x_dataStack?.[0];
     if (alpine) {
-        alpine.audioAction('play', src, title);
+        if (alpine.audioPlayer.src === src && alpine.audioPlayer.isVisible) {
+            alpine.audioAction('toggle');
+        } else {
+            alpine.audioAction('play', src, title);
+        }
     } else {
         // Fallback: HTML5 Audio
-        const audio = new Audio(src);
-        audio.play().catch(() => {
-            alert('File audio tidak ditemukan: ' + src);
-        });
+        if (window.currentAudioSrc === src && window.currentAudio) {
+            if (window.currentAudio.paused) {
+                window.currentAudio.play();
+            } else {
+                window.currentAudio.pause();
+            }
+        } else {
+            if (window.currentAudio) {
+                window.currentAudio.pause();
+            }
+            window.currentAudio = new Audio(src);
+            window.currentAudioSrc = src;
+            window.currentAudio.play().catch(() => {
+                alert('File audio tidak ditemukan: ' + src);
+            });
+        }
     }
 }
 

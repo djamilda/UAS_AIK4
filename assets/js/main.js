@@ -205,17 +205,20 @@ function appState() {
         // =========================================
         // VIDEO MODAL (F-04)
         // =========================================
-        videoModal: { show: false, url: '', title: '' },
+        videoModal: { show: false, url: '', title: '', type: 'youtube' },
 
         openVideo(url, title) {
-            this.videoModal.url   = url + '?autoplay=1&rel=0';
+            const isMp4 = typeof url === 'string' && url.toLowerCase().endsWith('.mp4');
+            this.videoModal.url   = isMp4 ? url : url + '?autoplay=1&rel=0';
             this.videoModal.title = title;
+            this.videoModal.type  = isMp4 ? 'mp4' : 'youtube';
             this.videoModal.show  = true;
         },
 
         closeVideo() {
             this.videoModal.show = false;
             this.videoModal.url  = '';
+            this.videoModal.type = 'youtube';
         },
 
         // =========================================

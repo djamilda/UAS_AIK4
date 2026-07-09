@@ -10,7 +10,7 @@ if (empty($breadcrumbs)) return;
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
         <ol class="flex items-center gap-1.5 text-sm flex-wrap">
             <li>
-                <a href="<?= str_repeat('../', substr_count($_SERVER['PHP_SELF'], '/') - 1) ?>index.php"
+                <a href="<?= BASE_URL ?>index.php"
                    class="text-white/50 hover:text-emerald-400 transition-colors flex items-center gap-1.5">
                     <i class="fas fa-home text-xs"></i>
                     <span>Beranda</span>

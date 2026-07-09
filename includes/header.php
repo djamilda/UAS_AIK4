@@ -65,7 +65,7 @@ $currentPage = basename($_SERVER['PHP_SELF'], '.php');
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="<?= str_repeat('../', substr_count($_SERVER['PHP_SELF'], '/') - 1) ?>assets/css/custom.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/custom.css">
 
     <!-- Alpine.js Collapse Plugin -->
     <script defer src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
@@ -93,7 +93,7 @@ $currentPage = basename($_SERVER['PHP_SELF'], '.php');
             <div class="flex items-center justify-between h-16 md:h-20">
 
                 <!-- Logo & Brand -->
-                <a href="<?= str_repeat('../', substr_count($_SERVER['PHP_SELF'], '/') - 1) ?>index.php"
+                <a href="<?= BASE_URL ?>index.php"
                    class="flex items-center gap-3 group">
                     <div class="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-xl flex items-center justify-center shadow-lg shadow-emerald-500/25 group-hover:scale-110 transition-transform duration-300">
                         <i class="fas fa-mosque text-white text-lg md:text-xl"></i>
@@ -145,12 +145,12 @@ $currentPage = basename($_SERVER['PHP_SELF'], '.php');
 
                     <!-- Navigation Links -->
                     <nav class="hidden md:flex items-center gap-1">
-                        <a href="<?= str_repeat('../', substr_count($_SERVER['PHP_SELF'], '/') - 1) ?>index.php"
+                        <a href="<?= BASE_URL ?>index.php"
                            class="px-3 py-2 text-sm rounded-lg transition-all duration-200
                                   <?= $currentPage === 'index' ? 'text-emerald-400 bg-emerald-500/15' : 'text-white/60 hover:text-white hover:bg-white/5' ?>">
                             <i class="fas fa-home mr-1.5"></i>Beranda
                         </a>
-                        <a href="<?= str_repeat('../', substr_count($_SERVER['PHP_SELF'], '/') - 1) ?>pages/about.php"
+                        <a href="<?= BASE_URL ?>pages/about.php"
                            class="px-3 py-2 text-sm rounded-lg transition-all duration-200
                                   <?= $currentPage === 'about' ? 'text-emerald-400 bg-emerald-500/15' : 'text-white/60 hover:text-white hover:bg-white/5' ?>">
                             <i class="fas fa-users mr-1.5"></i>Kelompok
@@ -174,11 +174,11 @@ $currentPage = basename($_SERVER['PHP_SELF'], '.php');
                     <p class="text-emerald-400 text-xs font-bold"><?= KELOMPOK_NAMA ?> • <?= PRODI ?></p>
                     <p class="text-white/60 text-xs mt-0.5"><?= MATA_KULIAH ?> | <?= DOSEN ?></p>
                 </div>
-                <a href="<?= str_repeat('../', substr_count($_SERVER['PHP_SELF'], '/') - 1) ?>index.php"
+                <a href="<?= BASE_URL ?>index.php"
                    class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm <?= $currentPage === 'index' ? 'text-emerald-400 bg-emerald-500/15' : 'text-white/70 hover:bg-white/5' ?>">
                     <i class="fas fa-home w-4"></i> Beranda
                 </a>
-                <a href="<?= str_repeat('../', substr_count($_SERVER['PHP_SELF'], '/') - 1) ?>pages/about.php"
+                <a href="<?= BASE_URL ?>pages/about.php"
                    class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm <?= $currentPage === 'about' ? 'text-emerald-400 bg-emerald-500/15' : 'text-white/70 hover:bg-white/5' ?>">
                     <i class="fas fa-users w-4"></i> Kelompok
                 </a>

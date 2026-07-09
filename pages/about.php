@@ -113,11 +113,10 @@ include '../includes/nav.php';
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <?php
             $anggota = [
-                ['nama' => 'Nama Anggota 1', 'nim' => 'NIM: 2xxxxxxx', 'peran' => 'Frontend Dev', 'icon' => '👨‍💻'],
-                ['nama' => 'Nama Anggota 2', 'nim' => 'NIM: 2xxxxxxx', 'peran' => 'Backend Dev',  'icon' => '👩‍💻'],
-                ['nama' => 'Nama Anggota 3', 'nim' => 'NIM: 2xxxxxxx', 'peran' => 'UI/UX Design',  'icon' => '🎨'],
-                ['nama' => 'Nama Anggota 4', 'nim' => 'NIM: 2xxxxxxx', 'peran' => 'Konten Editor', 'icon' => '✍️'],
-                ['nama' => 'Nama Anggota 5', 'nim' => 'NIM: 2xxxxxxx', 'peran' => 'Tester',        'icon' => '🧪'],
+                ['nama' => 'Djamilda Amanda Putri', 'nim' => 'NIM: 241230012', 'peran' => 'Ketua Tim/Project Manager', 'icon' => '👨‍💻'],
+                ['nama' => 'Muhammad Hasby Abdillah', 'nim' => 'NIM: 241230040', 'peran' => 'Backend Dev',  'icon' => '👩‍💻'],
+                ['nama' => 'Ahmada Irvansyah', 'nim' => 'NIM: 241230028', 'peran' => 'Frontend Dev',  'icon' => '👨‍💻'],
+                ['nama' => 'Atta Akramulhakim', 'nim' => 'NIM: 241230036', 'peran' => 'Database & Content Engineer', 'icon' => '✍️'],
             ];
             foreach ($anggota as $idx => $orang): ?>
             <div class="flex items-center gap-3 p-4 rounded-xl bg-white/4 border border-white/8
